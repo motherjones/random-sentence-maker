@@ -1,0 +1,128 @@
+#headline_generator_container body {
+	
+	font-family: "ProximaNovaRegular", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size: 1.88em;
+	text-align: center;
+	line-height:80px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#headline_generator_container {
+	margin: 0 3em 2em 3em;
+}
+
+#generated_headline {
+	height: 13em;
+	padding: .5em 0em 2em 0em;
+}
+
+#headline_generator_container h1 {
+	min-height:80px;
+	font-family: "ProximaNovaRegular", Helvetica, Arial, sans-serif;	
+	text-align: center;
+}
+
+#headline_generator_container h1 a {
+	color: #333;
+	text-decoration: underline;
+	border-bottom: none;
+}
+
+.headline_form_container {
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 1em;
+	width: 8.5em;
+}
+
+.headline_form_container form {
+	width: 7em;
+}
+
+#headline_generator_container input {
+	border: 1px solid #c33219;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: 0 1px 1px #999;
+	color: #fff;
+	display: block;
+	font-size: 16px;
+	padding: 10px 15px;
+	text-align: center;
+	background-color: #c33219; /* fallback color */
+	background: -moz-linear-gradient(top, #e64522, #c33219);
+	background: -ms-linear-gradient(top, #e64522, #c33219);
+	background: -webkit-linear-gradient(top, #e64522, #c33219);
+	text-shadow: 0 -1px -1px #972412;
+	width: 7em;
+}
+
+#headline_generator_container input:hover {
+	background: -moz-linear-gradient(top, #c33219, #e64522);
+	background: -webkit-linear-gradient(top, #c33219, #e64522);
+	cursor: pointer;
+}
+
+#headline_generator_container input:active {
+	background: -moz-linear-gradient(top, #a82e13, #e64522);
+	background: -webkit-linear-gradient(top, #a82e13, #e64522);
+	cursor: pointer;
+}
+
+#share_buttons_container {
+	display: block;
+	margin: 0 auto;
+	width: 5.4em;
+}
+
+
+#headline_generator_facebook_like, #headline_generator_container .hed-twitter-share-button {
+/*	float: left; */
+	overflow: hidden;
+	padding: 0;
+	text-indent: -9999em;
+	background-image: url(http://www.motherjones.com/sites/all/themes/denali/images/sprite_20120410.png);
+	background-position: -831px -817px;
+	display: inline-block;
+	height: 32px;
+	width: 32px;
+	clear: left;
+	margin-bottom: 3em;
+	border-bottom: none !important;
+	text-decoration: none;
+	opacity: 1;
+	transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+}
+
+#headline_generator_facebook_like {
+}
+
+#headline_generator_container .hed-twitter-share-button {
+/*		float: left; */
+	background-image: url(http://www.motherjones.com/sites/all/themes/denali/images/sprite_20120410.png);
+	background-position: -865px -817px;
+	margin-left: 0em;
+	margin-right: 6px;
+}
+
+
+#headline_generator_container .hed-twitter-share-button:hover, #headline_generator_facebook_like:hover {
+	opacity: .25;
+	color: white;
+	cursor: pointer;
+}
+
+@media only screen 
+and (max-width: 460px) {	
+	#generated_headline {
+		height: 17em;
+	}
+	#headline_generator_container {
+	margin: 0;
+	}
+}
