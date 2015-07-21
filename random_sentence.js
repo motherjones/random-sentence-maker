@@ -5,7 +5,6 @@ var dust_templates = 1;
 var url;
 
 var process_data = function(response) {
-    console.log(response);
     var data = {};
     for (var i = 0; i < response.length; i++) {
         for (var j in response[i]) {
@@ -15,13 +14,11 @@ var process_data = function(response) {
             }
         }
     }
-    console.log(data);
     return data;
 }
 
 var register_templates = function() {
     for (var i = 0; i < templates.length; i++) {
-        console.log(i);
         var compiled_tooltip = dust.compile(templates[i], (i + 1));
         dust.loadSource(compiled_tooltip);
         dust_templates++;
@@ -79,9 +76,7 @@ var display_new_headline = function() {
         i++;
     }
 
-    console.log(query);
     dust.render(dust_template, dust_context, function(err, out) {
-        console.log(err);
         headline_hed.html(out);
         set_twitter_text(out, query);
         set_facebook_text(out, query);
@@ -132,7 +127,9 @@ var check_query = function() {
     var dust_template = params.shift().replace(/^.*=/, '');
     var dust_context = {};
     for (var i=0; i < params.length; i++) {
-        dust_context[keys[i]] = data[keys[i]][ params[i].replace(/^.*=/, '') ];
+        dust_context[keys[i]] = data[keys[i]][
+          params[i].replace(/^.*=/, '').replace(/\//, '')
+        ];
     }
     dust.render(dust_template, dust_context, function(err, out) {
         headline_hed.html(out);
@@ -141,18 +138,21 @@ var check_query = function() {
     })
 }
 
+var tabletop_callback = function(response) {
+  data = process_data(response);
+  register_templates();
+  init_headline_generator();
+  check_query();
+}
+
+
 var start_random_sentence_maker = function(spreadsheet, proxy) {
     url = shorturl || document.location;
     var tt_options = { 
         key: spreadsheet,
         simpleSheet: true,
         prettyColumnNames: false,
-        callback: function(response) {
-            data = process_data(response)
-            register_templates();
-            init_headline_generator();
-            check_query();
-        }
+        callback: tabletop_callback,
     };
     if (proxy) {
         tt_options.proxy = proxy;

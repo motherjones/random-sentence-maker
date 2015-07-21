@@ -3,8 +3,8 @@
     <!-- don't paste me in -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <!-- end nopaste zone -->
-    <script src="tabletop.js"></script>	
-    <script src="dust-full-1.2.3.min.js"></script>	
+    <script src="http://assets.motherjones.com/interactives/js/tabletop.1.4.0.js"></script>	
+    <script src="http://assets.motherjones.com/interactives/js/dust-full-1.2.3.min.js"></script>	
     <script src="random_sentence.js"></script>	
 <link href="style.css" rel="stylesheet" />
 </head>
@@ -14,23 +14,53 @@
 </head>
 <body>
     <div id="headline_generator_container">
+      <form id="name_form" onsubmit="get_name(); return false;">
+        <input type="text" placeholder="Your Name"/>
+        <input type="submit" value="Go!"/>
+      </form>
         <div id="generated_headline"></div>
     </div>
     <script>
-        var spreadsheet = "12HUQ59IOFDDr5pk6fErsMvzyBdMUYRhiPQtdUeKdFZw";
+      var get_name = function() {
+        var form = $('#name_form');
+        form.hide();
+        var name = form.find('input[type="text"]').val();
+        tabletop_callback = function(response) {
+          data = process_data(response);
+          data['user_name'] = [name];
+          register_templates();
+          init_headline_generator();
+          check_query();
+        }
+        start_random_sentence_maker(spreadsheet, proxy);
+        return false;
+      };
+
+        var spreadsheet = "1eTi1J0Fc_uC_ODlnpNgIQWvTw1h0kcI_3T2P-7sqSWU";
         var proxy = '';
         var fb_description = 'Scalia Insult Generator'
         var fb_picture = 'http://www.motherjones.com/sites/all/themes/mobile/images/mobile_logo.png';
         var fb_app_id = '119572928091379';
         var templates = [
-        'something {noun}, and {secondnoun}',
-        'derp {noun}, and {verb} {secondnoun}',
-        'eyah {noun}',
+        '{subjectnametwice1} {user_name} {subjectnametwice2} {user_name} {predicate} {insult3} {kicker}',
+        '{user_name}{subjectnamefirst} {predicate} {insult3} {kicker}',
+        '{user_name}{subjectnamefirst} {predicate} {insult3} {kicker}',
+        '{user_name}{subjectnamefirst} {predicate} {insult3} {kicker}',
+        '{user_name}{subjectnamefirst} {predicate} {insult3} {kicker}',
+        '{user_name}{subjectnamefirst} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
+        '{subjectnamesecond} {user_name} {predicate} {insult3} {kicker}',
         ]
         var shorturl = ''
 
-        start_random_sentence_maker(spreadsheet, proxy);
     </script>
-    <script src="random_sentence.js"></script>
 </body>
 </html>

@@ -14,7 +14,6 @@
 }
 
 #generated_headline {
-	height: 13em;
 	padding: .5em 0em 2em 0em;
 }
 
@@ -40,8 +39,28 @@
 .headline_form_container form {
 	width: 7em;
 }
-
-#headline_generator_container input {
+#headline_generator_container form input {
+  margin-left: auto;
+  margin-right: auto;
+  width: 160px;
+  display: block;
+}
+#headline_generator_container input[type="text"] {
+    border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin-bottom: 30px;
+}
+#headline_generator_container input[type="submit"] {
 	border: 1px solid #c33219;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -60,13 +79,13 @@
 	width: 7em;
 }
 
-#headline_generator_container input:hover {
+#headline_generator_container input[type="submit"]:hover {
 	background: -moz-linear-gradient(top, #c33219, #e64522);
 	background: -webkit-linear-gradient(top, #c33219, #e64522);
 	cursor: pointer;
 }
 
-#headline_generator_container input:active {
+#headline_generator_container input[type="submit"]:active {
 	background: -moz-linear-gradient(top, #a82e13, #e64522);
 	background: -webkit-linear-gradient(top, #a82e13, #e64522);
 	cursor: pointer;
@@ -119,9 +138,6 @@
 
 @media only screen 
 and (max-width: 460px) {	
-	#generated_headline {
-		height: 17em;
-	}
 	#headline_generator_container {
 	margin: 0;
 	}
