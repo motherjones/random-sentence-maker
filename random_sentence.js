@@ -146,6 +146,7 @@ var start_random_sentence_maker = function(spreadsheet, proxy) {
     var tt_options = { 
         key: spreadsheet,
         simpleSheet: true,
+        prettyColumnNames: false,
         callback: function(response) {
             data = process_data(response)
             register_templates();
